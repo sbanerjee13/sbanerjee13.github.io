@@ -50,3 +50,7 @@ a:hover {
     background-color: rgb(255, 255, 255);
     color:black;
 }
+
+#content {
+    color: white;
+}
