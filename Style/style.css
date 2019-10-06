@@ -13,6 +13,9 @@ header {
 
 h1 {
     background-color: white;
+    animation: bgcolour 5s infinite alternate;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 10px;
 }
 
@@ -23,9 +26,7 @@ h1 {
 }
 
 span {
-    animation: bgcolour 5s infinite alternate;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
 }
 
 h2 {
@@ -85,9 +86,7 @@ div.paragraph {
 }
 
 #footer {
-    animation: bgcolour 5s infinite alternate;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
     font-family: "Courier New", "Courier", monospace;
     display: inline;
     position: absolute;
