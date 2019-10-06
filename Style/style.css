@@ -1,5 +1,7 @@
 body {
     background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    height: 100%;
 }
 
 header {
@@ -58,7 +60,7 @@ a:hover {
 
 div.paragraph {
     font-family: "Courier New", "Courier", monospace;
-    text-indent: 50px
+    text-align: center;
 }
 
 #footer {
@@ -75,4 +77,12 @@ div.paragraph {
 
 div.footerClass {
     text-align: center;
+}
+
+p {
+    margin-bottom: 100px;
+}
+
+#clock {
+    color: white;
 }
