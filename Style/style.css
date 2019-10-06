@@ -53,4 +53,26 @@ a:hover {
 
 #content {
     color: white;
+    padding: 50px;
+}
+
+div.paragraph {
+    font-family: "Courier New", "Courier", monospace;
+    text-indent: 50px
+}
+
+#footer {
+    color: white;
+    font-family: "Courier New", "Courier", monospace;
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    margin-top: 40px;
+    right: 0;
+    left: 0;
+}
+
+div.footerClass {
+    text-align: center;
 }
