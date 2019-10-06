@@ -52,7 +52,9 @@
                         break;
                 }
                 
-                document.getElementById('clock').innerHTML = day + " " + 
+                var dayOfTheMonth = today.getDate();
+                
+                document.getElementById('clock').innerHTML = day + " " + dayOfTheMonth + ", " +
                 h + ":" + m + " " + en;
                 var t = setTimeout(startTime, 500);
             }
@@ -69,7 +71,11 @@
             <div id="clock"></div>
         </header>
         
-        
+        <div id = "content">
+            <div class = "news">
+            <p>10/5/2019 - site created and requests are open</p>
+            </div>
+        </div>
         
         <div id = "footer">
             <div class = "footerClass">
