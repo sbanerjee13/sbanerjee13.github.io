@@ -70,9 +70,8 @@ a {
 
 .translink:hover {
     transition: 0.6s;
-    animation: bgcolour 5s infinite alternate;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-color: white;
+    color: black;
 }
 
 #content {
