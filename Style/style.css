@@ -108,7 +108,9 @@ p {
 }
 
 #clock {
-    color: white;
+    animation: bgcolour 5s infinite alternate;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 div.news {
