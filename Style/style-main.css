@@ -1,8 +1,10 @@
 body {
-    background:linear-gradient(rgba(0, 0, 0, 0.95),rgb(0, 0, 0, 0.95)),url("background.png") no-repeat center center fixed;
+    background:-webkit-linear-gradient(rgba(0, 0, 0, 0.95),rgba(0, 0, 0, 0.95)),url("background.png") no-repeat center center fixed;
+    background:linear-gradient(rgba(0, 0, 0, 0.95),rgba(0, 0, 0, 0.95)),url("background.png") no-repeat center center fixed;
     background-size: cover;
+    background-size: -webkit-cover;
     overflow: hidden;
-    height: 100%;
+    height: 100%;   
 }
 
 header {
