@@ -1,12 +1,8 @@
 body {
-    background:linear-gradient(0deg,rgba(0, 0, 0, 0.95),rgb(0, 0, 0, 0.95)),url("background.png") no-repeat center center fixed;
+    background:linear-gradient(rgba(0, 0, 0, 0.95),rgb(0, 0, 0, 0.95)),url("background.png") no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
     height: 100%;
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
 }
 
 header {
