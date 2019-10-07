@@ -1,6 +1,5 @@
 * {
     animation: fadein 2s;
-    animation: fadein 5s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
@@ -12,7 +11,6 @@ body {
     overflow: hidden;
     height: 100%;
     animation: fadein 2s;
-    animation: fadein 5s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
@@ -168,6 +166,8 @@ div.news {
 @-webkit-keyframes fadein { /* Safari and Chrome */
     from {
         opacity:0;
+    } to{
+        opacity: 1;
     }
 }
 

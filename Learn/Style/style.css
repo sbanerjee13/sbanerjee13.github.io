@@ -154,6 +154,8 @@ div.news {
 @-webkit-keyframes fadein { /* Safari and Chrome */
     from {
         opacity:0;
+    } to {
+        opacity: 1;
     }
 }
 
