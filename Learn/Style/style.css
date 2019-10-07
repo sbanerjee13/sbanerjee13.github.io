@@ -27,10 +27,12 @@ h1 {
 
 span {
     color: white;
+    font-weight: bold;
 }
 
 h2 {
     font-size: 20px;
+    font-weight: bold;
 }
 
 span {
@@ -59,20 +61,26 @@ ul#horizontal-list li{
     margin: 0 0 50px;
 }
 
-a {
+li a {
     color: white;
     text-decoration: none;
     font-family: "Courier New", "Courier", monospace;
+    display: inline-block;
+    font-weight: bold;
 }
 
-.translink {
-    transition: 0.6s;
+.translink::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
 }
 
-.translink:hover {
-    transition: 0.6s;
-    background-color: white;
-    color: black;
+.translink:hover::after {
+    width: 100%;
+    transition: width 0.3s;
 }
 
 #content {
@@ -95,6 +103,7 @@ div.paragraph {
     margin-top: 40px;
     right: 0;
     left: 0;
+    font-weight: bold;
 }
 
 div.footerClass {
