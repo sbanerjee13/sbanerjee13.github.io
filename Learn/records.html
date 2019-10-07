@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+	<meta charset = "utf-8">
+
+	<style>
+		*{
+			color: white;
+			background-color: black;
+			font-family: "Courier New", "Courier", monospace;
+		}
+		h1{
+			font-size: 20px;
+			text-align: center;
+		}
+		p.infotext {
+			font-size: 20px;
+		}
+		h2{
+			font-size: 20px;
+			text-align: center;
+		}
+		pre{
+			padding: 10px;
+			border: 2px solid white;
+		}
+        
+        #transition {
+        animation: fadein 5s;
+        -moz-animation: fadein 2s; /* Firefox */
+        -webkit-animation: fadein 2s; /* Safari and Chrome */
+        -o-animation: fadein 2s; /* Opera */
+        }
+        @keyframes fadein {
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-moz-keyframes fadein { /* Firefox */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity:0;
+            }
+        }
+	</style>
+</head>
+
+<body>
+	<h1>USACO 2013 December Bronze - Record Keeping - Solution [Java]</h1>
+	<hr>
+
+	<h2><u>Explanation</u></h2>
+	<p class = "infotext">
+		In this problem, our input format is 3 strings (representing names of cows). These strings are in ALL CAPS. They are also not necessarily ordered. To summarize the algorithm, we need to collect the first letters of the names of the cows, order them alphabetically, and then record the number of times they enter the barn. <br> <br>
+		I decided to implement Java's LinkedHashMap and List objects in order to contain the data. The LinkedHashMap has <strong>keys in strings</strong> and <strong>values in integers</strong>. The string will be the ordered first letters of the 3 cows, and the integer will represent the number of times that group enters the barn.
+	</p>
+
+	<hr>
+		<h2><u>Code</u></h2>
+
+	<p class = "codeText">
+		<pre>
+import java.util.*;
+import java.io.*;
+
+class records {
+
+	public static void main(String[] args) throws IOException {
+
+		Scanner in = new Scanner(new File("records.in"));
+		PrintWriter out = new PrintWriter(new File("records.out"));
+
+		int n = in.nextInt();
+		in.nextLine();
+		LinkedHashMap<String, Integer> counter = new LinkedHashMap<>();
+		List<String> firstLetters = new LinkedList<>();
+		for(int i = 0; i < n; i++){
+			String cows = in.nextLine().replaceAll("\\s+", "");;
+			System.out.println(cows);
+			firstLetters.add(cows);
+			if (counter.containsKey(cows)) {
+				counter.put(cows, counter.get(cows)+1);
+			} else {
+				counter.put(cows, 1);
+			}
+		}
+
+		int max = Integer.MIN_VALUE;
+		for(int i = 0; i < n; i++){
+			if(counter.get(firstLetters.get(i)) > max){
+				max = counter.get(firstLetters.get(i));
+			}
+		}
+
+		out.println(max);
+		out.close();
+
+	}
+}</pre>
+	</p>
+</body>
+
+<html>
