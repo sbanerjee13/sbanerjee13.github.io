@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>sid</title>
+        <link rel="stylesheet" href = "style-solutions.css">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src = "js/home.js"></script>
+    </head>
+    
+    <body>
+        <div id = "transition">
+            <div class = "header">
+                <h1>Teleportation</h1>
+                <h2>USACO February 2018 Bronze</h2>
+
+                <hr>
+            </div>
+            
+            <div class = "statement">
+                <p>Here's an easy one! We simply determine whether the distance between Farmer John's initial location and the teleporter closest to him plus the distance between the second teleporter and the destination is smaller than if Farmer John just walks straight to the destination. It is important to note that the use of absolute value is helpful as it returns a distance that is always positive; by using positive numbers, we don't have to consider fixing the conditionals for walking backwards/forwards.
+                <br><br>
+                Problem Tags: Distance, Absolute Value, Quick Conditionals
+                </p>
+            </div>
+            
+            <div class = "solution">
+            <pre>
+// <i>@author Sid Banerjee, 2020</i>         
+            
+import java.io.*;
+import java.util.*;
+
+public class teleport {
+    public static void main(String[] args) throws IOException {
+        Scanner in = new Scanner(new File("teleport.in"));
+        PrintWriter pw = new PrintWriter(new File("teleport.out"));
+
+        // input here
+        int a = in.nextInt(); int b = in.nextInt(); int x = in.nextInt(); int y = in.nextInt();
+
+        // algorithm here
+        int walkToDestination = Math.abs(b-a); // is this the optimal solution? walking from start to end?
+
+        int closestToA; int closestToB;
+        if(Math.abs(a-y) > Math.abs(a-x)){
+            closestToA = x;
+            closestToB = y;
+        }else{
+            closestToA = y;
+            closestToB = x;
+        }
+
+        int distanceUsingTeleporters = Math.abs(a-closestToA) + Math.abs(b-closestToB);
+
+        pw.println(distanceUsingTeleporters > walkToDestination ? walkToDestination : distanceUsingTeleporters);
+        pw.close();
+    }
+}
+            </pre>
+            </div>
+        </div>
+    </body>
+</html>

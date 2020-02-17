@@ -78,3 +78,12 @@ body {
     color:white;
     background-color: blue;
 }
+
+.notebook-content hr {
+    width: 25%;
+}
+
+ul {
+    list-style: none;
+    padding-right: 35px;
+}
