@@ -14,7 +14,7 @@
 
 .statement {
     font-family: serif;
-    display: inline;
+    display: block;
 }
 
 .statement h1 {
