@@ -58,7 +58,7 @@ body {
 }
 
 #smile {
-    padding-top: 40px;
+    padding-top: 50px;
     text-align: center;
 }
 
@@ -118,10 +118,4 @@ body {
 .archive-link:hover {
     color: blue;
     text-decoration: underline;
-}
-
-.welcome {
-    font-size: 10px;
-    font-weight: normal;
-    font-family: cursive;
 }

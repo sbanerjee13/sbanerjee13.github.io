@@ -13,54 +13,64 @@
     <body>
         <div id = "transition">
             <div class = "header">
-                <h1>Time and Speed Control</h1>
-                <h2>Week of 2/16/2020 - 2/23/2020</h2>
+                <h1>Week 2: The Donut Thief</h1>
+                <h2>Week of 2/24/2020 - 3/2/2020</h2>
 
                 <hr>
             </div>
 
             <div class = "statement">
-                <h1>Available languages: Java 11.0.5, Python 3.7.2, GNU G++17 7.3.0, C# Mono 5.18, Kotlin 1.3.10, PHP 7.2.13</h1>
-                <p>You are in charge of ordering books 8 books on a shelf in a library: Candyland, Central Data, Cinderhulk, Clownman Begins, CMOS Integration, Codename: Monkey, Cute Dogs, and Cynthia's Story. However, the head librarian has demanded that certain books be next to each other. Because of state library standards, books must be as close to alphabetical order as possible. Given this information, please determine the <i>lexicographically smallest</i> permutation of books possible, given an <i>n</i> number of instructions (demands).
+                <h1>Available languages: Java 11.0.5, Python 3.7.2, GNU G++17 7.3.0, C# Mono 5.18, Kotlin 1.3.10, PHP 7.2.13, ECMAScript 2019, Node.JS 12.16.1 LTS <span class ="welcome"> - you're welcome milan</span></h1>
+                <p>You are offering free donuts as a celebration for your company's grand opening. People can line up in front of your donut stand and get a donut, given that they write down their name and e-mail on a "contact info" paper. As the day goes on (and you recieve more supply of donuts), you begin to realize that one man keeps changing his outfits and coming back to the table to get a second donut. Additionally, he changes his name so that he doesn't get cauught. However, you realize that he only changes his name by a few letters (never a completely different name), and that his fake names always have the same number of letters as his real name. To clarify, if the thief has a name with <i>X</i> letters, he will, at most, change <i>X-1</i> of the letters in his name. Given a list of names, determine which are fake.
                     <br><br>
                 <strong>INPUT:</strong> <br>
-                The first line of the input is <i>n</i>. The next <i>n</i> lines describe a demand from the head librarian. The format of the demand is as such: "<i>X</i> must be placed beside <i>Y</i>", where <i>X</i> and <i>Y</i> are the titles of books.
+                The first line of the input is <i>n</i>. The next <i>n</i> lines each contain a name of a person. 
                     <br><br>
                 <strong>OUTPUT:</strong> <br>
-                The output consists of 8 lines, each with the title of a book. The order should satisfy all constraints. If there are muliple solutions, output the one that alphabetically comes first.
+                The output should list the names that are the aliases of the thief. 
                     <br><br>
                 <strong>TEST INPUT:</strong>
                 </p>
                 <h3>
-                3<br>
-                Cute Dogs must be beside Cinderhulk.<br>
-                Codename: Monkey must be beside Cinderhulk.<br>
-                Cynthia's Story must be beside Candyland.
+                18<br>
+                John<br>
+                Jessie<br>
+                Bob<br>
+                Marley<br>
+                Milan<br>
+                Richard<br>
+                Maharishi Rajarethenam<br>
+                Gregory<br>
+                Jame<br>
+                Joon<br>
+                Hagoosh<br>
+                Banignig<br>
+                Spinachman<br>
+                Cleopagoohiehaha<br>
+                Mihailo<br>
+                Leonardo DiCaprio<br>
+                Sentimoniyara'golsict'hulu<br>
+                Corn
                 </h3>
                 <p>
                 <strong>TEST OUTPUT:</strong> 
                 </p>
                 <h3>
 
-                Candyland<br>
-                Cynthia's Story<br>
-                Central Data<br>
-                Clownman Begins<br>
-                CMOS Integration<br>
-                Codename: Monkey<br>
-                Cinderhulk<br>
-                Cute Dogs<br>
+                Jame<br>
+                Joon<br>
+                Corn
                 </h3>
 
                 <p>
-                Problem Credits: USACO 2019 December Contest, Bronze; adapted by Sid Banerjee, original problem by Brian Dean <a class = "problem-link" href="http://usaco.org/index.php?page=viewproblem2&cpid=965">here.</a>
+                Problem Credits: Sid Banerjee <span class = "welcome">jesus christ this problem this horrible</span>
                     <br><br>
-                <strong>Note:</strong> In the "official" solution to this problem, Nick Wu uses the built-in C++ <a href="http://www.cplusplus.com/reference/algorithm/next_permutation/"><span class = "mid-code">std::next_permutation</span></a> to automatically traverse through the lexicographically ordered permutations of cows (or in this case, books). He can implement complete search because 8! will run well under the time limit (8! is 40320). For this reason, <strong>I recommend finding a solution in another language, as C++ has an "easy" solution.</strong>
+                <strong>Note:</strong> Assume that every name given is male.
                 </p>
             </div>
-
-            <div id = "smile">
-                <h1>:)</h1>
+            
+            <div id = "archive">
+                <h1 class = "archive-header"><a class = "archive-link" href="Archive/archive.html">Weekly Problem Archive</a></h1>
             </div>
             
         </div>

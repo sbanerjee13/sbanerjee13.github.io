@@ -1,0 +1,66 @@
+#header {
+    text-align: center;
+    font-family: monospace;
+}
+
+.header-wrapper {
+    font-size: 7px;
+    font-weight: normal;
+}
+
+.header-wrapper h1 {
+    color: black;
+}
+
+#content-wrapper {
+    margin: 30px;
+}
+
+#content-wrapper li {
+    margin: 0 0 20px 0;
+}
+
+ul {
+    list-style: lower-greek;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: blue;
+    color: white;
+}
+
+#transition {
+    animation: fadein 5s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    } to{
+        opacity: 1;
+    }
+}
