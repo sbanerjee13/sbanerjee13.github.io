@@ -25,9 +25,9 @@
                     
                 However, you can only attack the gene in a specific way. Here are the rules:
                 <br><br>1) You can only start by converting a guanine (G) into a mahanine (M). After the starting point, you can, in one unit of time, convert <strong>one more</strong> guanine and turn it into mahanine.
-                <br><br>2) You can only infect a target to your left and/or right if they are adenine or guanine, in which case you can convert them into mahanine (M).
-                <br><br>3) Any cytosine to your direct left and/or right you can convert into adenine.
-                <br><br>4) The only way to convert a thymine into mahanine is to have it surrounded by mahanine.
+                <br>2) You can only infect a target to your left and/or right if they are adenine or guanine, in which case you can convert them into mahanine (M).
+                <br>3) Any cytosine to your direct left and/or right you can convert into adenine.
+                <br>4) The only way to convert a thymine into mahanine is to have it surrounded by mahanine. <br><br>
                     
                 For every unit of time, as many of the 4 "moves" as possible will occur. For example, if you have the string <i>AGGGCCTCCGGAG</i>, in one unit of time it will convert into <i>AGGMCCTCCGGAG</i>. Then, in <span class = "mid-code">time = 2</span>, the string becomes <i>AGMMACTCCMGAG</i>. In <span class = "mid-code">time = 3</span>, it will become <i>AMMMMATCAMMAM</i>. This continues until <span class = "mid-code">time = n</span>, where the string is <i>MMMMMMMMMMMMM</i>.
                     <br><br>
