@@ -29,7 +29,8 @@ body {
 
 .statement p {
     font-size: 15px;
-    padding: 0px 200px 0px 200px;
+/*    padding: 0px 200px 0px 200px;*/
+    margin-left: 200px;
 }
 
 .statement h3 {

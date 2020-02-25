@@ -24,7 +24,7 @@
                 <p>You are the Mahavirus, a virulent and potent disease that can actually change the genetic code of humans, causing immunodeficiency (essentially, you are cancer). Given a string representing the genetic code of a human, determine the minimum amount of time it will take you to convert all of the DNA into mahanine (M).
                     
                 However, you can only attack the DNA in a specific way. Here are the rules:
-                <br><br>1) You can only start by converting a guanine (G) into a mahanine (M). After the starting point, you can, in one unit of time, convert <strong>one more</strong> guanine and turn it into mahanine.
+                <br><br>1) You can convert <strong>one</strong> guanine and turn it into mahanine.
                 <br>2) You can only infect a target to your left and/or right if they are adenine or guanine, in which case you can convert them into mahanine (M).
                 <br>3) Any cytosine to your direct left and/or right you can convert into adenine.
                 <br>4) The only way to convert a thymine into mahanine is to have it surrounded by mahanine. <br><br>
@@ -62,12 +62,13 @@
                 <p>
                 Problem Credits: Sid Banerjee
                     <br><br>
-                <strong>Note:</strong> It is guaranteed that a solution exists. In other words, there is no test case such that a thymine is at the end of the string (as surrounding it would be impossible). Also, though nucleic acid <i>is</i> encoded in G-C-A-T format, the lengths of the DNA used in this problem are not realistic lengths.
+                <strong>Note:</strong> It is guaranteed that a solution exists. When you turn a guanine into a mahanine, you cannot, in that same unit of time, infect neighboring units.
                 </p>
             </div>
             
             <div id = "archive">
                 <h1 class = "archive-header"><a class = "archive-link" href="Archive/archive.html">Weekly Problem Archive</a></h1>
+                <h1 class = "archive-header"><a class = "archive-link" href="https://sidbanerjee.club">Home</a></h1>
             </div>
             
         </div>
