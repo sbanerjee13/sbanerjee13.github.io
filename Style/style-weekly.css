@@ -16,6 +16,12 @@ body {
     font-size: 12px;
 }
 
+#problem-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+}
+
 .statement {
     font-family: serif;
     display: block;
@@ -30,14 +36,14 @@ body {
 .statement p {
     font-size: 15px;
 /*    padding: 0px 200px 0px 200px;*/
-    margin-left: 8vw;
+/*    margin-left: 8vw;*/
 }
 
 .statement h3 {
     font-size: 15px;
     font-family: monospace;
     font-weight: normal;
-    margin-left: 8vw;
+/*    margin-left: 8vw;*/
 }
 
 .mid-code {
