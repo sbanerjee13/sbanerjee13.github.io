@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>sid</title>
+        <link rel="stylesheet" href = "style-solutions.css">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    
+    <body>
+        <div id = "transition">
+            <div class = "header">
+                <h1>Swapity Swap</h1>
+                <h2>USACO February 2020 Bronze</h2>
+
+                <hr>
+            </div>
+            
+            <div class = "statement">
+                <p>The third Bronze problem was tricky only in terms of efficiency; in other words, shaving down on the runtime of the algorithm was the crux of the matter. Initially, the problem looks solvable via commiting the swapping operations on an array <i>K</i> times. However, as <i>K</i> can be as large as 10<sup>9</sup>, several cases will timeout. Instead, we have to look at <strong>optimization</strong>. We need to reduce our algorithm to manageable numbers (a good rule of thumb is &le; 2,000,000 iterations should be fine). An excellent approach to this problem (as with every other problem) is to manually write out the processes with your own sample input to look for a pattern. After doing so, an apparent pattern is established: after swapping subsets <i>X</i> times, the array will revert to its original state! Thus, we can cut down on the number of iterations by implementing a "remainder-based" approach.
+                <br><br>
+                </p>
+                <p class = "inline-def">a = <i>K</i> % <i>T</i> where a = reduced case number, <i>T</i> = number of iterations to get to the reverted state.</p>
+                <br><br>
+                <p>
+                Problem Tags: Optimization, Reduction
+                </p>
+                <hr class = "half-hr">
+            </div>
+            <div class = "solution">
+            <pre>
+// <i>@author Sid Banerjee</i>
+            
+import java.io.*;
+import java.util.*;
+
+public class testswap {
+    public static void main(String[] args) throws IOException {
+        Scanner in = new Scanner(new File("swap.in"));
+        PrintWriter pw = new PrintWriter(new File("swap.out"));
+
+        // input here
+        int n = in.nextInt(); int k = in.nextInt(); in.nextLine();
+        int A1 = in.nextInt()-1; int A2 = in.nextInt()-1; in.nextLine();
+        int B1 = in.nextInt()-1; int B2 = in.nextInt()-1;
+
+        int[] positions = new int[n];
+        int[] basis = new int[n];
+        for(int i = 0; i < n; i++){
+            positions[i] = i+1;
+            basis[i] = i+1;
+        }
+
+        // algorithm here
+        if(B1 > A2){ // don't overlap
+            if(k % 2 != 0) { // odd
+                int[] a1a2 = new int[A2-A1+1];
+                int counter = 0;
+                for(int j = A1; j <= A2; j++){
+                    a1a2[counter] = positions[j];
+                    counter++;
+                }
+
+                int[] reverseda1a2 = reverse(a1a2, a1a2.length);
+
+                counter = 0;
+                for(int j = A1; j <= A2; j++){
+                    positions[j] = reverseda1a2[counter];
+                    counter++;
+                }
+
+                int[] b1b2 = new int[B2-B1+1];
+                counter = 0;
+                for(int j = B1; j <= B2; j++){
+                    b1b2[counter] = positions[j];
+                    counter++;
+                }
+
+                int[] reversedb1b2 = reverse(b1b2, b1b2.length);
+
+                counter = 0;
+                for(int j = B1; j <= B2; j++){
+                    positions[j] = reversedb1b2[counter];
+                    counter++;
+                }
+            }
+        } else {
+            int totalCount = 0;
+            boolean secondLoop = false;
+            for(int i = 0; i < k; i++){
+                int[] a1a2 = new int[A2-A1+1];
+                int counter = 0;
+                for(int j = A1; j <= A2; j++){
+                    a1a2[counter] = positions[j];
+                    counter++;
+                }
+
+                int[] reverseda1a2 = reverse(a1a2, a1a2.length);
+
+                counter = 0;
+                for(int j = A1; j <= A2; j++){
+                    positions[j] = reverseda1a2[counter];
+                    counter++;
+                }
+
+                int[] b1b2 = new int[B2-B1+1];
+                counter = 0;
+                for(int j = B1; j <= B2; j++){
+                    b1b2[counter] = positions[j];
+                    counter++;
+                }
+
+                int[] reversedb1b2 = reverse(b1b2, b1b2.length);
+
+                counter = 0;
+                for(int j = B1; j <= B2; j++){
+                    positions[j] = reversedb1b2[counter];
+                    counter++;
+                }
+
+                totalCount++;
+
+                System.out.println(Arrays.toString(positions) + " " + Arrays.toString(basis));
+
+                Object[] arr1 = {positions};
+                Object[] arr2 = {basis};
+                if(Arrays.deepEquals(arr1, arr2)) {
+                    secondLoop = true;
+                    break;
+                }
+            }
+
+            int remainderLeft = k % totalCount;
+            //System.out.println(k + " " + totalCount + " " + remainderLeft);
+
+            if(secondLoop) {
+                //System.out.println("going in");
+                for (int i = 0; i < remainderLeft; i++) {
+                    int[] a1a2 = new int[A2 - A1 + 1];
+                    int counter = 0;
+                    for (int j = A1; j <= A2; j++) {
+                        a1a2[counter] = positions[j];
+                        counter++;
+                    }
+
+                    int[] reverseda1a2 = reverse(a1a2, a1a2.length);
+
+                    counter = 0;
+                    for (int j = A1; j <= A2; j++) {
+                        positions[j] = reverseda1a2[counter];
+                        counter++;
+                    }
+
+                    int[] b1b2 = new int[B2 - B1 + 1];
+                    counter = 0;
+                    for (int j = B1; j <= B2; j++) {
+                        b1b2[counter] = positions[j];
+                        counter++;
+                    }
+
+                    int[] reversedb1b2 = reverse(b1b2, b1b2.length);
+
+                    counter = 0;
+                    for (int j = B1; j <= B2; j++) {
+                        positions[j] = reversedb1b2[counter];
+                        counter++;
+                    }
+                }
+            }
+        }
+
+        for(int i : positions){
+            pw.println(i);
+        }
+
+        pw.close();
+    }
+
+    static int[] reverse(int a[], int n)
+    {
+        int[] b = new int[n];
+        int j = n;
+        for (int i = 0; i < n; i++) {
+            b[j - 1] = a[i];
+            j = j - 1;
+        }
+
+        return b;
+    }
+}
+            </pre>
+            </div>
+        </div>
+    </body>
+</html>

@@ -96,10 +96,18 @@ a:hover{
 }
 
 .solution {
-    border: 5px solid gray;
+/*    border: 5px solid gray;*/
 }
 
 .solution pre {
     padding: 0px 200px 0px 200px;
     font-size: 12px;
+}
+
+.half-hr {
+    width: 79%;
+}
+
+.inline-def {
+    text-align: center;
 }
