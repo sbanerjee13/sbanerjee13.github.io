@@ -87,3 +87,7 @@ ul {
     list-style: none;
     padding-right: 35px;
 }
+
+#math-equation {
+    font-size: 20px;
+}
