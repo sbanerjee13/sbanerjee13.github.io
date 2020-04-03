@@ -1,0 +1,262 @@
+body {
+    background-color: #FBFBFB;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* NAVBAR/HEADER */ 
+
+#header {
+    margin: auto;
+    overflow: hidden;
+    width: 55vw;
+}
+
+#nav-list {
+    margin: auto;
+    display: inline;
+    float: right;
+}
+
+#jumbo-nav {
+    width: inherit;
+    margin: auto;
+}
+
+#logo {
+    float: left;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 600;
+    padding-top: 19px;
+    user-select: none;
+}
+
+ul {
+    list-style: none;
+    float: right;
+}
+
+li {
+    float: left;
+    padding-left: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+}
+
+a.reg-button {
+    color: black;
+    transition: color 0.3s;
+}
+
+a.reg-button:hover {
+    color: #FB9595;
+}
+
+.docs-button {
+    cursor: pointer;
+    background-color: #5096A0;
+    border-style: solid;
+    border-width: 2.3px;
+    border-radius: 4px;
+    border-color: #5096A0;
+    color: white;   
+    padding: 4px 18px;
+	transition: background .3s, color .3s;
+}
+
+.docs-button:hover {
+    color: black;
+    background-color: white;
+    border-color: #5096A0;
+}
+
+/* CONTENT */
+
+#main-content {
+    width: 55vw;
+    margin: 5rem auto auto auto;
+}
+
+/* BUBBLES */
+
+.bubble-content {
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bubble {
+    float: left;
+    text-align: left;
+    background-color: #FBFBFB;
+    border-radius: 6px;
+    color: black;   
+    padding: 4px 25px;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
+    justify-content: space-between;
+}
+
+.bubble:hover {
+    box-shadow: 0 0 15px 10px rgba(0,0,0,.075);
+}
+
+.bi {
+    float: left;
+    padding: 0.85em 0.3em 0 0;
+}
+
+h1.bubble-title {
+    float: left;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+p.bubble-info {
+    clear: both;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.bubble-button {
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #5096A0;
+    border-style: solid;
+    border-width: 2.3px;
+    border-radius: 4px;
+    border-color: #5096A0;
+    color: white;   
+    padding: 2px 9px;
+	transition: background .3s, color .3s;
+}
+
+.bubble-button:hover {
+    color: black;
+    background-color: white;
+    border-color: #5096A0;
+}
+
+/* SPACER */
+
+#spacer-content {
+    margin: auto;
+    padding-top: 75px;
+    text-align: center;
+    clear: both;
+}
+
+.spacer-header {
+    color: #e3e3e3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.spacer-header::selection {
+    background: #5096A0;
+}
+
+/* BLOG CONTENT */
+
+#blog-container {
+    margin-top: 2rem;
+}
+
+.blog-post {
+    margin-bottom: 1rem;
+    font-family: 'Amiko', sans-serif;
+    text-align: left;
+    background-color: #FBFBFB;
+    border-radius: 6px;
+    color: black;   
+    padding: 4px 25px;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
+}
+
+.blog-title {
+    font-size: 20px;
+}
+
+.blog-title::selection {
+    background: #5096A0;
+}
+
+.blog-blurb {
+    font-size: 14px;
+}
+
+.blog-blurb::selection {
+    background: #5096A0;
+}
+
+.blog-date {
+    font-size: 12px;
+    color: #afafaf;
+}
+
+.blog-date::selection {
+    background: #5096A0;
+}
+
+.blog-button {
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #5096A0;
+    border-style: solid;
+    border-width: 2.3px;
+    border-radius: 4px;
+    border-color: #5096A0;
+    color: white;   
+    padding: 6px 12px;
+	transition: background .3s, color .3s;
+}
+
+.blog-button:hover {
+    color: black;
+    background-color: white;
+    border-color: #5096A0;
+}
+
+/* FOOTER */ 
+
+#footer {
+    padding-top: 2rem;
+    text-align: center;
+    font-family: 'Amiko', sans-serif;
+    user-select: none;
+}
+
+.heart-icon {
+    color: gray;
+    transition: color 0.5s;
+}
+
+.heart-icon:hover {
+    color: red;
+}
+
+.footer-header {
+    font-size: 14px;
+}
+
+.copyright {
+    font-size: 12px;
+    font-weight: 600;
+}
