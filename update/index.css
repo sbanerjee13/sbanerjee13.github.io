@@ -293,6 +293,10 @@ p.bubble-info {
         padding-left: 50px;
     }
     
+    .blog-title{
+        text-align: center;
+    }
+    
     .blog-blurb {
         text-align: center;
     }
