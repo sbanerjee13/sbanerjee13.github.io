@@ -1,6 +1,13 @@
+/* VARIABLES AND BASIC DECLARATION */
+
+:root {
+    --theme-color: #5096a0;
+}
+
 body {
     background-color: #FBFBFB;
     overflow-y: scroll;
+    transition: 0.5s;
 }
 
 body::-webkit-scrollbar {
@@ -9,6 +16,37 @@ body::-webkit-scrollbar {
 
 body::-moz-scrollbar {
     display: none;
+}
+
+#hero-container {
+    animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s; /* Firefox */
+    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
+    -o-animation: fadein 0.5s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    } to{
+        opacity: 1;
+    }
 }
 
 /* NAVBAR/HEADER */ 
@@ -63,16 +101,16 @@ a.reg-button {
 }
 
 a.reg-button:hover {
-    color: #5096A0;
+    color: var(--theme-color);
 }
 
 .docs-button {
     cursor: pointer;
-    background-color: #5096A0;
+    background-color: var(--theme-color);
     border-style: solid;
     border-width: 2.3px;
     border-radius: 4px;
-    border-color: #5096A0;
+    border-color: var(--theme-color);
     color: white;   
     padding: 4px 18px;
 	transition: background .3s, color .3s;
@@ -83,19 +121,18 @@ a.reg-button:hover {
 .docs-button:hover {
     color: black;
     background-color: white;
-    border-color: #5096A0;
+    border-color: var(--theme-color);
 }
 
 /* CONTENT */
 
 #main-content {
-    width: 55%;
+    width: 55vw;
     margin: 5rem auto auto auto;
 }
 
 
 /* BUBBLES */
-
 
 .bubble-content {
     user-select: none;
@@ -103,29 +140,34 @@ a.reg-button:hover {
     justify-content: space-between;
 }
 
-.bubble {
-    float: left;
-    text-align: left;
-    background-color: #FBFBFB;
-    border-radius: 6px;
-    color: black;   
-    padding: 4px 25px;
-    transition: box-shadow 0.2s;
-    -moz-transition: box-shadow 0.2s;
-    -webkit-transition: box-shadow 0.2s;
-    box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
-    justify-content: space-between;
-}
-
 .bubble:hover {
     box-shadow: 0 0 15px 10px rgba(0,0,0,.075);
 }
 
-.bi {
-    float: left;
-    padding: 0.85em 0.3em 0 0;
+.round_b {
+    border-radius: 6px;
 }
 
+.bubble {
+    text-align: center;
+    background-color: #FBFBFB;
+    border-radius: 6px;
+    color: black;   
+    padding: 10px;
+    transition: box-shadow 0.2s;
+    -moz-transition: box-shadow 0.2s;
+    -webkit-transition: box-shadow 0.2s;
+    box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
+    width: 10vw;
+    height: 15vh;
+    justify-content: space-between;
+    margin: 2rem auto auto auto;
+}
+
+.bi {
+    float: none;
+    padding: 10px;
+}
 h1.bubble-title {
     float: left;
     font-family: 'Amiko', sans-serif;
@@ -146,11 +188,11 @@ p.bubble-info {
     font-weight: 400;
     font-size: 14px;
     cursor: pointer;
-    background-color: #5096A0;
+    background-color: var(--theme-color);
     border-style: solid;
     border-width: 2.3px;
+    border-color: var(--theme-color);
     border-radius: 4px;
-    border-color: #5096A0;
     color: white;   
     padding: 2px 9px;
 	transition: background .3s, color .3s;
@@ -161,8 +203,9 @@ p.bubble-info {
 .bubble-button:hover {
     color: black;
     background-color: white;
-    border-color: #5096A0;
+    border-color: var(--theme-color);
 }
+
 
 /* SPACER */
 
@@ -180,13 +223,14 @@ p.bubble-info {
 }
 
 .spacer-header::selection {
-    background: #5096A0;
+    background: var(--theme-color);
 }
 
 /* BLOG CONTENT */
 
 #blog-container {
     margin-top: 2rem;
+    width: 55vw;
 }
 
 .blog-post {
@@ -206,7 +250,7 @@ p.bubble-info {
 }
 
 .blog-title::selection {
-    background: #5096A0;
+    background: var(--theme-color);
 }
 
 .blog-blurb {
@@ -214,7 +258,7 @@ p.bubble-info {
 }
 
 .blog-blurb::selection {
-    background: #5096A0;
+    background: var(--theme-color);
 }
 
 .blog-date {
@@ -223,7 +267,7 @@ p.bubble-info {
 }
 
 .blog-date::selection {
-    background: #5096A0;
+    background: var(--theme-color);
 }
 
 .blog-button {
@@ -232,11 +276,11 @@ p.bubble-info {
     font-weight: 500;
     font-size: 14px;
     cursor: pointer;
-    background-color: #5096A0;
+    background-color: var(--theme-color);
     border-style: solid;
     border-width: 2.3px;
     border-radius: 4px;
-    border-color: #5096A0;
+    border-color: var(--theme-color);
     color: white;   
     padding: 6px 12px;
 	transition: background .3s, color .3s;
@@ -247,7 +291,7 @@ p.bubble-info {
 .blog-button:hover {
     color: black;
     background-color: white;
-    border-color: #5096A0;
+    border-color: var(--theme-color);
 }
 
 /* FOOTER */ 
@@ -290,7 +334,6 @@ p.bubble-info {
         float: none;
         text-align: center;
         margin: auto;
-        padding-left: 50px;
     }
     
     .blog-title{
@@ -309,7 +352,8 @@ p.bubble-info {
 @media (max-width: 1550px) {
     .bubble-content {
         user-select: none;
-        display: grid;
+        display: flex;
+        flex-direction: column;
     }
 
     .bubble {

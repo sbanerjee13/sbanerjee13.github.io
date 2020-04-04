@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="posts.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/9e048cea77.js" crossorigin="anonymous"></script>
+        <title>Binary Search - Topic</title>
+        <link rel="shortcut icon" type="image/png" href="/Img/favicon.png">
+    </head>
+    <body>
+        <div id = "hero-container">
+            <div id = "header">
+                <div id = "jumbo-nav">
+                    <div id = "logo">Sid Banerjee</div>
+                    <div id = "nav-list">
+                        <ul class = "nav-ul">
+                            <li class = "nav-li"><a class = "docs-button d-b" href="https://sidbanerjee/club">home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST TITLE -->
+            <div id = "container">
+                <div id = "post-wrapper">
+                    <div class = "post-title">
+                        <a class = "back-btn" href = "/Notebook/notebook.html"><i class="far fa-arrow-alt-circle-left fa-2x"></i></a><h1 class = "title-header">Binary Search - Topic</h1>
+                        <p class = "date">Posted on April 3, 2020 at 6:42 PM [PST]</p>
+                    </div>
+
+                    <div id = "post-content">
+                        <h1 class = "big-header">What is Binary Search?</h1>
+                        <div class = "p--">
+                            <p class = "post-content-p">Binary search is an algorithm for finding data in a set. Binary search runs in, at worst, logarithmic time. Thus, the complexity 
+                            of the search is O(log n). Today we look at the <strong>recursive approach</strong> to this algorithm. <br><br>Imagine an array of 9 sorted integers. Your array may look like the following:</p>
+                        </div>
+                        <div class = "code">
+                            <p class = "code-block"><span class = "orange">int</span>[] arr = {1, 3, 6, 8, 10, 14, 18, 21, 24};</p>
+                        </div>
+                        <div class = "p--">
+                            <p class = "post-content-p">Binary search finds the central element (in this case, it would be 10), and checks to see whether it is greater than, less than, or equal to the 
+                            target value. Let's say our <strong>target value is 18.</strong> Since 10 is less than 18, we know that our target value <i>must</i> be in the second half of the array.
+                            In other words, our target (18) is guaranteed to be to the "right" of the number we checked (10). This narrows down our array to the following numbers: </p>
+                        </div>
+                        <div class = "code">
+                            <p class = "code-block">// {14, 18, 21, 24};</p>
+                        </div>
+                        <div class = "p--">
+                            <p class = "post-content-p">Since we have an even number of  elements (and our method for locating the central element uses integers), the new "central" element will be
+                            18. The formula for locating the central element is as follows: </p>
+                        </div>
+                        <div class = "code">
+                            <p class = "code-block"><span class = "orange">int</span> mid = startPos + (endPos - startPos) / 2;  </p>
+                        </div>
+                        <div class = "p--">
+                            <p class = "post-content-p">Each time the function is called, the three checks occur. If the target value is less than the central value, then narrow down the search to the left half.
+                            If the target value is equal to the central value, return the position it is in. Finally, if the target value is greater than the central value, narrow down the search to the right half of the remaining array. The code for this is such: </p>
+                        </div>
+                        <div class = "code">
+                            <p class = "code-block">
+                            <span class = "purple">static</span> <span class = "orange">int</span> binarySearch(<span class = "orange">int</span>[] arr, <span class = "orange">int</span> s, <span class = "orange">int</span> e, <span class = "orange">int</span> target){<br><br>
+                            &emsp;&emsp;&emsp;&emsp;<span class = "orange">int</span> mid = s + (e - s) / 2; 
+                            <br><br>
+                            &emsp;&emsp;&emsp;&emsp;<span class = "orange">if</span>(e &lt; >= s){
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "orange">if</span>(mid &lt; target){
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "purple">return</span> binarySearch(arr, mid+1, arr.<span class = "purple">length</span>, target);
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                            <br><br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "orange">if</span>(mid == target){
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "purple">return</span> mid;
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                            <br><br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "orange">if</span>(mid &gt; target){
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "purple">return</span> binarySearch(arr, 0, mid+1, target);
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                            <br>
+                            &emsp;&emsp;&emsp;&emsp;}
+                            <br><br>
+                            &emsp;&emsp;&emsp;&emsp;<span class = "purple">return</span> -1; <span class = "gray">// if the element does not exist, return -1.</span>
+                            <br>
+                            }
+                            </p>
+                        </div>
+                        <div class = "p--">
+                            <p class = "post-content-p">Algorithms with logarithmic complexity are some of the fastest methods. Your runtime will be considerably faster if you implement binary search because logarithmic algorithms increases at a lower rate than linear-complexity algorithms.
+                            <br><br>
+                            Resources: <a class = "back-btn" href="https://www.geeksforgeeks.org/binary-search/">Geeks for Geeks</a>, <a class = "back-btn" href="https://www.youtube.com/watch?v=P3YID7liBug">HackerRank</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div id = "footer">
+                <h3 class = "footer-header">With <a class = "heart-icon" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fas fa-heart fa-xs"></i></a> by Sid Banerjee</h3>
+                <p class = "copyright">&copy; 2020</p>
+            </div>
+        </div>
+    </body>
+</html>
