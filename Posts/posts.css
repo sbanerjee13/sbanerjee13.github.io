@@ -214,6 +214,10 @@ a.reg-button:hover {
 
 /* CODE COLORS */
 
+span::selection {
+    background-color: var(--theme-color);
+}
+
 .orange {
     color: #ff8e6b;
 }
