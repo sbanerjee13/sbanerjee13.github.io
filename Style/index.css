@@ -60,7 +60,6 @@ body::-moz-scrollbar {
 #nav-list {
     margin: auto;
     display: inline;
-    float: right;
 }
 
 #jumbo-nav {
@@ -132,80 +131,30 @@ a.reg-button:hover {
 }
 
 
-/* BUBBLES */
+/* CATCH */
 
-.bubble-content {
-    user-select: none;
+#catch-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-.bubble:hover {
-    box-shadow: 0 0 15px 10px rgba(0,0,0,.075);
-}
-
-.round_b {
-    border-radius: 6px;
-}
-
-.bubble {
-    text-align: center;
-    background-color: #FBFBFB;
-    border-radius: 6px;
-    color: black;   
-    padding: 10px;
-    transition: box-shadow 0.2s;
-    -moz-transition: box-shadow 0.2s;
-    -webkit-transition: box-shadow 0.2s;
-    box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
-    width: 10vw;
-    height: 15vh;
-    justify-content: space-between;
-    margin: 2rem auto auto auto;
-}
-
-.bi {
-    float: none;
-    padding: 10px;
-}
-h1.bubble-title {
-    float: left;
-    font-family: 'Amiko', sans-serif;
+.catch-header {
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 20px;
 }
 
-p.bubble-info {
-    clear: both;
-    font-family: 'Amiko', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
+#icons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: auto;
 }
 
-.bubble-button {
-    margin-bottom: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: var(--theme-color);
-    border-style: solid;
-    border-width: 2.3px;
-    border-color: var(--theme-color);
-    border-radius: 4px;
-    color: white;   
-    padding: 2px 9px;
-	transition: background .3s, color .3s;
-    -moz-transition: background 0.3s, color 0.3s;
-    -webkit-transition: background 0.3s, color 0.3s;
+.catch-design {
+    padding-top: 3rem;
+    padding-left: 6rem;
 }
-
-.bubble-button:hover {
-    color: black;
-    background-color: white;
-    border-color: var(--theme-color);
-}
-
 
 /* SPACER */
 
@@ -346,6 +295,15 @@ p.bubble-info {
     
     .blog-date {
         text-align: center;
+    }
+
+    #icons-container {
+        flex-direction: column;
+    }
+
+    .catch-design {
+        padding: 0;
+        margin: auto;
     }
 }
 
