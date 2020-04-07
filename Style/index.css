@@ -7,7 +7,7 @@
 body {
     background-color: #FBFBFB;
     overflow-y: scroll;
-    transition: 0.5s;
+    transition: 2s;
 }
 
 body::-webkit-scrollbar {
@@ -19,10 +19,10 @@ body::-moz-scrollbar {
 }
 
 #hero-container {
-    animation: fadein 0.5s;
-    -moz-animation: fadein 0.5s; /* Firefox */
-    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
-    -o-animation: fadein 0.5s; /* Opera */
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
 }
 
 @keyframes fadein {
@@ -154,6 +154,14 @@ a.reg-button:hover {
 .catch-design {
     padding-top: 3rem;
     padding-left: 6rem;
+}
+
+.bi {
+    transition: transform 0.2s ease-in-out;
+}
+
+.bi:hover {
+    transform: scale(1.1);
 }
 
 /* SPACER */
@@ -304,6 +312,12 @@ a.reg-button:hover {
     .catch-design {
         padding: 0;
         margin: auto;
+    }
+}
+
+@media (max-width: 1210px){
+    .catch-design {
+        padding-left: 3rem;
     }
 }
 
