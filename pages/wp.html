@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Chord Flow - Sid Banerjee</title>
+    <meta name="description" content="My website homepage.">
+    <meta name="author" content="Sid Banerjee">
+    <link rel="stylesheet" type="text/css" href="../style/homepage.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/b89ad085b1.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <!-- OVERVIEW -->
+    <div id = "block">
+      <div class = "block-text">
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Chord Flow</h1>
+        </div>
+        <div class = "block-p">
+          <p><b>Overview:</b> This project began with iReal Pro, an app that plays accompanying instruments over chords, allowing musicians such as myself to practice playing and improvising. However, since the app provides specific chords in a singular key, I naturally “lock in” to the key-specific chords. This means that playing the song in other keys becomes a challenge, as chords themselves are relative to a key.</p>
+          <p>To solve this, I turned to Roman Numeral Analysis (RNA). Instead of looking at chords based on the notes they are made of, I look at them as a number in relation to the key of the song. Doing so allows me to notice common chord progressions (like the ii-V-I). Also, RNA transcends key signatures–it’s constant regardless of key. Therefore, it’s optimal to practice with these roman numerals, as I can apply phrases and transitions to any key.</p>
+          <p>In this project, I used Python and Arduino to turn jazz chord changes into roman numerals and then, in time, display them on a LCD Display. Using this machine, I can practice numerous songs, following the roman numerals instead of iReal Pro’s chord changes.</p>
+          <p>Since the roman numerals appear in time with the song, users can choose the bpm (or beats per minute) to practice in. Along with displaying correct chordal qualities (for example, major versus minor and dominant versus diminished), this machine also supports chord alterations and additions like added ninths or thirteenths.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div id = "block">
+      <div class = "block-text">
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Video Demonstration</h1>
+        </div>
+        <iframe width="90%" height="345" src="https://www.youtube.com/embed/FVU3s0Pk908" style="display:block; margin: 0 auto; padding-bottom: 1rem;" frameBorder="0"></iframe>
+      </div>
+    </div>
+
+    <div id = "comment-spacer"><span id = "cspan">[ * * * ]</span></div>
+
+    <!-- PROCESS -->
+
+    <div id = "block">
+      <div class = "block-text">
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Process</h1>
+        </div>
+        <div class = "block-p">
+          <p>iReal Pro encodes musical data via the Extensible Markup Language (XML). Information regarding chord roots, qualities, durations, etc. are all stored under unique tags.
+            I created a Python script to scrape the relevant chordal information from the XML files and coded an algorithm that analyzed the chords and converted the song's progression
+            into RNA.
+            <br><br>
+            I used Arduino and an LCD Screen to display the roman numerals in time. To facilitate communication between the Arduino and the Python script, I utilized the Serial Port to
+            transfer information.
+          </p>
+        </div>
+
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Python Script</h1>
+        </div>
+        <div class = "block-p">
+          <p>Using the XML Element Tree Python module, I traversed through the relevant song's XML file, extracting tags such as &lt;root-step&gt; (root notes) and &lt;root-alter&gt; (alterations/additions).
+            iRealPro codifies half steps as either "-1" or "+1", with the sign indicating the direction. I also intended to keep everything in terms of flats to make chords easier to handle. This meant
+            implementing a small "algorithm" for calculating enharmonics. This algorithm works as illustrated in the following example:
+            <br><br>
+          </p>
+          <p class = "p-center">F (+1) → [Interpreted as F#] → Gb</p>
+          <br>
+          <p>Extracting the correct key was a challenge. In the XML file, it is codified by a number followed by either "major" or "minor". After lots of pondering, I realized it had to do with the Circle of Fifths (COF).
+          The "major"/"minor" determines which COF it is (there are separate major/minor ones), and the numer represents how far from the top to travel, with positive being clockwise and negative being counter-clockwise.
+          </p>
+          <img src="images/COF.png" width="35%" height="35%" class="centered-image"></img>
+          <p class = "p-center" style="color:lightgray; font-size:0.7rem;">Image Source: Applied Guitar Theory</p>
+          <p>Referring to the COF shown above, if the XML file says [4 / major], we choose the outer ring (the major COF) and "move" clockwise four spaces starting from the top (C). This means that the key of the song is
+            E major.
+            <br><br>
+            Once I extracted the key of the song, I created a corresponding Scale object using the Python music21 library. With this, I iterated through the chords (i.e. parsed through the harmony tags in the XML file) and used
+            the Scale object to determine each chord's corresponding roman numeral. I also pulled out alteration/addition information and used it to modify the roman numerals to properly display full chordal qualities, such as
+            added 9ths or 13ths. Additionally, diminished chords were codified as Minor 7th chords with an altered 5th (lowered 5th); instead of displaying a "min 7th (-5)", my algorithm detected it as a diminished chord and
+            correctly displayed the ⌀ symbol instead. However, since Python couldn't properly pass the symbol to the Arduino, I created a custom display for the character using a byte array.
+          </p>
+            <h2 class = "code-snippet">ArduinoBoard = serial.Serial(<span style="color:#748B75">port</span>=<span style="color:#C5D3C6">'COM5'</span>, <span style="color:#748B75">baudrate</span>=<span style="color:#C5D3C6">115200</span>, <span style="color:#748B75">timeout</span>=<span style="color:#C5D3C6">0.1</span>)</h2>
+            <p class = "p-center" style="color:gray; font-size:0.8rem;">Script snippet illustrating the implementation of the Serial Library.</p>
+          <p>
+            To send information to the Arduino, I used the Serial Python library to communicate via the Serial Port. The roman numerals are stored in a list; the script iterates through this list and, in time, sends the String
+            of the roman numeral into the serial port. Since raw Strings cannot be passed into the port, they must first be encoded–in this project, I encoded them in ASCII.
+          </p>
+        </div>
+
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Arduino</h1>
+        </div>
+        <div class = "block-p">
+          <p>My Arduino circuit involves a simple 16x2 LCD Display connected to the Arduino UNO board through a potentiometer. In my code, I start by initializing the Serial Port connection and the LCD display.
+            In the loop sequence, the Arduino awaits a Serial Port input; upon reception it prints the data on the screen. Since the Python script implements the time-based delay, no further delays were implemented
+            in the Arduino script. As mentioned before, since the "o-slash" character cannot naturally be printed on the LCD Display, I created a custom byte array to handle this case.
+            <br><br>
+            One issue I ran into was that the circuit guide I followed used Pin 1 on the UNO board. However, the Serial Port uses Pins 0/1, so I had to re-wire the circuit and update my code accordingly. Another major
+            issue I faced was getting the Python script and Arduino to communicate. After much frustration, I figured out that the script needed a delay between registering the Serial Port (as highlighted in a previous
+            code snippet) and actually sending a message. In other words, I simply had to implement a sleep command to allow time for the Serial Port communication to initialize. Surprisingly, it needed specifically 2
+            seconds to work; 1 second was not sufficient.
+            <br><br>
+            Process Video: https://www.youtube.com/embed/FVU3s0Pk908
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div id = "comment-spacer"><span id = "cspan">[ * * * ]</span></div>
+
+  </body>
+</html>
