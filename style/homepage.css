@@ -14,6 +14,12 @@ h1 {
   font-family: 'Lora', serif;
 }
 
+h2 {
+  font-weight: normal;
+  font-size: 1.1rem;
+  font-family: 'Lora', serif;
+}
+
 .header-margin, .toggle {
   margin-right: 0.8rem;
 }
@@ -52,6 +58,7 @@ p {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
 }
 
 .block-icons {
@@ -99,7 +106,7 @@ p {
 }
 
 #cspan {
-  color: #D3D3D3;
+  color: black;
   font-size: 2rem;
   font-family: 'Lora', serif;
 }
