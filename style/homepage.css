@@ -83,6 +83,11 @@ p {
   padding-bottom: 1rem;
 }
 
+.block-p-pi {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
 .in-p-link {
   color: #288F88;
   text-decoration: none;
