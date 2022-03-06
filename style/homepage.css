@@ -12,6 +12,7 @@ h1 {
   font-weight: normal;
   font-size: 1.5rem;
   font-family: 'Lora', serif;
+  color: #5b5882;
 }
 
 h2 {
@@ -29,6 +30,11 @@ p {
   font-size: 0.9rem;
 }
 
+.mid-purple {
+  color: #9893da;
+  font-weight: bold;
+}
+
 /* BLOCK STUFF */
 
 #block {
@@ -37,6 +43,7 @@ p {
   text-align: left;
   box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
   border-radius: 10px;
+  border: 2px solid #9893DA;
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -73,6 +80,7 @@ p {
   margin-right: 0.8rem;
   color: black;
   transition: transform 0.2s ease-in-out;
+  color: #9893da;
 }
 
 .icon-button:hover {
@@ -111,7 +119,7 @@ p {
 }
 
 #cspan {
-  color: black;
+  color: #3c3a57;
   font-size: 2rem;
   font-family: 'Lora', serif;
 }
@@ -159,7 +167,7 @@ p {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-family: 'Amiko', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .pb-text {
@@ -169,13 +177,15 @@ p {
   text-align: center;
   box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
   border-radius: 10px;
-  transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   color: black;
+  border: 2px solid #9893DA;
 }
 
 .pb-text:hover {
   box-shadow: 0 0 15px 8px rgba(0,0,0,.15);
-  color: #9893DA;
+  color: white;
+  background-color: #9893DA;
   cursor: pointer;
 }
 
