@@ -75,6 +75,24 @@
           \[\int \frac{d\text{Q}}{dt} \,dt = C\int \frac{d\text{V}}{dt} \,dt.\]
           <p class = "p-center" style="color:gray; font-size:0.8rem;">The graph of $V_{cap}$ is a phase shift away from the graph of $\frac{d\text{V}}{dt}$. The integral equation is unecessary, but I just think it looks cool :)</p>
         </div>
+
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">Understanding Diodes (Week 3)</h1>
+        </div>
+        <div class = "block-p">
+          <p>Diodes are electrical components that allow current to flow only in one direction. Diodes contain an electric field at the barrier between the N-type cathode and P-type anode; this is called the depletion region.
+          When a forward bias is established, it allows current to flow. However, the applied voltage must exceed the potential difference across the depletion region or current will not flow, i.e. the applied voltage must overcome
+          the diffusion-based electric field.</p>
+          <img src="images/diode_graph.png" width="70%" height="70%" class="centered-image" style="border: 3px solid #5b5882;"></img>
+          <p class = "p-center" style="color:gray; font-size:0.8rem;">Graph of Voltage vs. Current for a diode. Negative x-axis is reverse bias, positive is forward bias. Internal electric field is often $\sim0.6\text{V}$</p>
+          <p>I designed a circuit via LTSPice involving a sine voltage, a standard $\text{1N4148}$ Diode, and a $100\Omega$ resistor. Modifying the transient analysis tools, I plotted the Current (I) vs. Voltage (V) to produce the expected graph.
+          It displayed an internal voltage of $0.6\text{V}$.</p>
+          <img src="images/diode_schematic.png" width="50%" height="50%" class="centered-image" style="border: 3px solid #5b5882;"></img>
+          <p class = "p-center" style="color:gray; font-size:0.8rem;">LTSpice simulation describing the diode circuit.</p>
+          <img src="images/diode_graph_simul.png" width="60%" height="60%" class="centered-image" style="border: 3px solid #5b5882;"></img>
+          <p class = "p-center" style="color:gray; font-size:0.8rem;">Analysis of the current through the diode. Applying either a reverse bias voltage or a voltage below the internal threshold resulted in zero current.</p>
+          <p>Diodes can be used to convert Alternating Current (AC) into Direct Current (DC). Also, by only applying a current in one direction, it can keep electrical components safe from power surges.</p>
+        </div>
       </div>
     </div>
 
