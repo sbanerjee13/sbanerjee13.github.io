@@ -50,62 +50,73 @@
           <h1 class = "pages-header">Overview</h1>
         </div>
         <div class = "block-p">
-          <p>An amplifier takes an input signal and increases its magnitude by some scaling factor. Most commonly, amps are used in the context of music to produce sounds at
-          varying audio levels. However, as illustrated below, percieved audio levels differ from actual, measured "loudness" (i.e. sound pressure level scale).</p>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Lindos1.svg/400px-Lindos1.svg.png" width="43%" height="43%" class="centered-image"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">Red lines illustrate equal percieved loudness levels for varying frequencies.</p>
-          <p>Therefore, amplifying music volume by the same factor for all frequencies is ineffective. Furthermore, the <strong> goal of this project is to dynamically amplify an audio signal
-          based on its frequency, resulting in constant percieved loudness regardless of frequency.</strong></p>
+          <p>This audio amplifier implements three stages: a band pass filter, a gain stage (amplifier), and an output stage.</p>
+          <img src="images/flow.png" width="70%" height="70%" class="centered-image"></img>
         </div>
 
         <div class = "pages-block-top">
-          <h1 class = "pages-header">Resistors & Capacitors (Weeks 1-2)</h1>
+          <h1 class = "pages-header">The Filter Stage</h1>
         </div>
         <div class = "block-p">
-          <p>In an RC circuit, the charging equation for the capacitor is as follows:</p>
-          \[\large V_{cap} = V_0(1-e^{\frac{-t}{RC}})\]
-          <p>where $V_0$ is maximum voltage and $RC$ is the time-constant (resistance by capacitance). If we set $t=RC$, we get</p>
-          \[\large V_{cap} = V_0(1-\frac{1}{e}).\]
-          <p>Therefore, we can find the time at which the capacitor is $\sim63.1\%$ charged--this time is the time constant, so we can solve for the unknown resistance or capacitance. I used
-          LTSpice to design a simple RC schematic and simulate its behavior. In this circuit, I used a $1\text{V}$ pulse signal, $100\Omega$ resistor and a 1$\mu F$ capacitor; some quick calculations told me the time
-          constant should be $0.1\text{ms}$.</p>
-          <img src="images/RC_Simul.png" width="50%" height="50%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">LTSPice simulation of a basic RC circuit with quantities described above.</p>
-          <img src="images/RC_Transient.png" width="50%" height="50%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">Transient analysis of the voltage across the capacitor.</p>
-          <img src="images/RC_DAta.png" width="50%" height="50%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">From the data, the horizontal difference ($\Delta t$) is the time constant; i.e. $152\mu s$ or $0.152\text{ms}$.</p>
-          <p>Next I built the circuit and used the oscilloscope to analyze the real circuit. I measured the voltage across the capacitor using the oscilloscope.</p>
-          <img src="images/RC_Data_Real.jpg" width="60%" height="60%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">Again, the horizontal difference ($\Delta t$) is the time constant; i.e. $166\mu s$ or $0.166\text{ms}$.</p>
-          <p>In comparing the calculated (ideal) value, the simulated value, and the real value, I found the data to be relatively consistent! I experimentally found an RC value of
-          $0.159\text{ms}$, which isn't far off from the calculated $0.1\text{ms}$. Capacitors are a great way to store charges in circuits and then release them at a later point in time.
-          Additionally, I explored the relationship between voltage and charge in a capacitor by applying some calculus.</p>
-          \[\large \text{Q = CV},\]
-          \[\large \frac{d\text{Q}}{dt} = C\frac{d\text{V}}{dt}, \]
-          \[\int \\dQ = C\int \\dV.\]
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">The graph of $V_{cap}$ is a phase shift away from the graph of $\frac{d\text{V}}{dt}$. The integral equation is unecessary, but I just think it looks cool :)</p>
+          <img src="images/BandPassFilter.png" width="70%" height="70%" class="centered-image"></img>
+          <p class = "p-center" style="color:gray; font-size:0.7rem;">Circuit diagram illustrating the low-pass filter (left) and high-pass filter (right).</p>
+          <br>
+          <p>The <strong>band pass filter</strong> is comprised of two consecutive RC circuits. One acts as a low-pass filter and the other
+          acts as a high-pass filter. Essentially, they only allow low/high frequencies (respectively) to pass through; the corner frequency values are
+          determined by:</p>
+          \[\large f_{c} = \frac{1}{2\pi(RC)}.\]
+          <p>The impedence of a capacitor in an AC circuit is as follows</p>
+          \[\large Z = \frac{1}{i(2 \pi f) C}.\]
+          <p>With a given AC signal input at a given frequency we can determine the behavior of the output signal; furthermore, we can see how the arrangement of
+          the two RC circuits differentiates the low-pass from the high-pass filter.</p>
+          \[\large \lim_{f\to\infty} (Z)=0, \quad \lim_{f\to0} (Z)=V.\]
+          <p>Additionally, the presence of a capacitor in between the signal input and the gain stage adds another function: <strong>DC blocking</strong>! The capacitor
+          allows AC signals (i.e. signals with non-zero frequencies) to pass through while blocking DC (zero frequency) signals from interfering.</p>
         </div>
 
         <div class = "pages-block-top">
-          <h1 class = "pages-header">Understanding Diodes (Week 3)</h1>
+          <h1 class = "pages-header">The Gain Stage</h1>
         </div>
         <div class = "block-p">
-          <p>Diodes are electrical components that allow current to flow only in one direction. Diodes contain an electric field at the barrier between the N-type cathode and P-type anode; this is called the depletion region.
-          When a forward bias is established, it allows current to flow. However, the applied voltage must exceed the potential difference across the depletion region or current will not flow, i.e. the applied voltage must overcome
-          the diffusion-based electric field.</p>
-          <img src="images/diode_graph.png" width="70%" height="70%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">Graph of Voltage vs. Current for a diode. Negative x-axis is reverse bias, positive is forward bias. Internal electric field is often $\sim0.6\text{V}$</p>
-          <p>I designed a circuit via LTSPice involving a sine voltage, a standard $\text{1N4148}$ Diode, and a $100\Omega$ resistor. Modifying the transient analysis tools, I plotted the Current (I) vs. Voltage (V) to produce the expected graph.
-          It displayed an internal voltage of $0.6\text{V}$.</p>
-          <img src="images/diode_schematic.png" width="50%" height="50%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">LTSpice simulation describing the diode circuit.</p>
-          <img src="images/diode_graph_simul.png" width="60%" height="60%" class="centered-image" style="border: 3px solid #5b5882;"></img>
-          <p class = "p-center" style="color:gray; font-size:0.8rem;">Analysis of the current through the diode. Applying either a reverse bias voltage or a voltage below the internal threshold resulted in zero current.</p>
-          <p>Diodes can be used to convert Alternating Current (AC) into Direct Current (DC). Also, by only applying a current in one direction, it can keep electrical components safe from power surges.</p>
+          <img src="images/GainStage.png" width="60%" height="60%" class="centered-image"></img>
+          <p class = "p-center" style="color:gray; font-size:0.7rem;">Circuit diagram illustrating the output stage.</p>
+          <br>
+          <p>The <strong>gain stage</strong> uses four resistors and an NPN transistor to produce a predicted 6x gain. I designed the circuit to implement
+          voltage divider bias as it removes dependence on beta (highly variable due to a myriad of factors). Using resistors, we create bias voltages and generally
+          fix the voltage difference across $\text{R}3$.</p>
+          <p>With this design, the input signal (initially passed through the band-pass filter) is amplified to ~6x. The voltage swing is translate to be centered at 6V
+          with a +/- 5V peak.</p>
+          <p>In characterizing the quality of this amplifier, I ran a fast-fourier transform and studied the harmonics to calculate the Total Harmonic Distortion (THD).
+          Using the following equation, I found the THD which represents how much harmonic noise distorts the output signal; I aimed for a relatively low number.</p>
+          \[\large \text{THD} = \frac{\sqrt{\sum_{n=2}^{\infty} V_{n(rms)}^2}}{V_{fund(rms)}}.\]
+          <p>The calculated THD for this amplifier is $2.359\%$!</p>
         </div>
+
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">The Output Stage</h1>
+        </div>
+        <div class = "block-p">
+          <img src="images/OutputStage.png" width="70%" height="70%" class="centered-image"></img>
+          <p class = "p-center" style="color:gray; font-size:0.7rem;">Circuit diagram illustrating the output stage.</p>
+          <br>
+          <p>The gain stage properly amplifies the input signal; however, it lacks the current to drive the speaker. To solve this problem, I created an output stage
+          which used a current mirror to maintain a 1x gain while boosting the current into the speaker. The current mirror essentially fixes the voltage drop across Q6
+          which in turn fixes the current passing through the collector/output.</p>
+          <p>On its own, the two output transistors still did not have enough current to drive the speaker properly. So, I added another "layer" of two transistors to minimize
+          the base current requirement, resulting in an improved output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the capacitors
+          would heat up quickly. This caused thermal runaway which impacted the circuit--I countered this by monitoring the current via a DC signal generator and using the heatsinks to
+          keep temperatures relatively low.</p>
+        </div>
+
+        <div class = "pages-block-top">
+          <h1 class = "pages-header">The Final Circuit!</h1>
+        </div>
+        <div class = "block-p">
+          <iframe width="90%" height="345" src="https://www.youtube.com/embed/qgV-m4YsfFE" style="display:block; margin: 0 auto; padding-bottom: 1rem;" frameBorder="0"></iframe>
+          <p class = "p-center" style="color:gray; font-size:0.7rem;">Showcasing the final circuit, including the filter, gain stage, and output stage.</p>
+        </div>
+
       </div>
     </div>
-
   </body>
 </html>
