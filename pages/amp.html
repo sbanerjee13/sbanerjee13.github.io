@@ -1,3 +1,8 @@
+<!-- Emitter follower output stage -->
+<!-- output stage has high collector current (~150mA), this high collector current results in high base current (Ic/beta) -->
+<!-- reduces requirement on voltage gain stage, current-wise -->
+<!-- amp gain is R3/R4, op point to 3mA to get 6V drop, nominal point is 6V -->
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -103,7 +108,7 @@
           which used a current mirror to maintain a 1x gain while boosting the current into the speaker. The current mirror essentially fixes the voltage drop across Q6
           which in turn fixes the current passing through the collector/output.</p>
           <p>On its own, the two output transistors still did not have enough current to drive the speaker properly. So, I added another "layer" of two transistors to minimize
-          the base current requirement, resulting in an improved output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the capacitors
+          the base current requirement, resulting in an improved output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the output stage transistors
           would heat up quickly. This caused thermal runaway which impacted the circuit--I countered this by monitoring the current via a DC signal generator and using the heatsinks to
           keep temperatures relatively low.</p>
         </div>
