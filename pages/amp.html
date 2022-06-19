@@ -88,13 +88,14 @@
           <br>
           <p>The <strong>gain stage</strong> uses four resistors and an NPN transistor to produce a predicted 6x gain. I designed the circuit to implement
           voltage divider bias as it removes dependence on beta (highly variable due to a myriad of factors). Using resistors, we create bias voltages and generally
-          fix the voltage difference across $\text{R}3$.</p>
-          <p>With this design, the input signal (initially passed through the band-pass filter) is amplified to ~6x. The voltage swing is translate to be centered at 6V
-          with a +/- 5V peak.</p>
+          fix the voltage difference across $\text{R}3$. The amp's gain is defined as the ratio between $\text{R}3$ and $\text{R}4$; we set the operating point to $3\text{mA}$
+          to achieve a $6\text{V}$ drop (the nominal point is $6\text{V}$).</p>
+          <p>With this design, the input signal (initially passed through the band-pass filter) is amplified to ~6x. The voltage swing is translate to be centered at $6\text{V}$
+          with a +/- $5\text{V}$ peak.</p>
           <p>In characterizing the quality of this amplifier, I ran a fast-fourier transform and studied the harmonics to calculate the Total Harmonic Distortion (THD).
           Using the following equation, I found the THD which represents how much harmonic noise distorts the output signal; I aimed for a relatively low number.</p>
           \[\large \text{THD} = \frac{\sqrt{\sum_{n=2}^{\infty} V_{n(rms)}^2}}{V_{fund(rms)}}.\]
-          <p>The calculated THD for this amplifier is $2.359\%$!</p>
+          <p>The calculated THD for this amplifier is $2.359\%$.</p>
         </div>
 
         <div class = "pages-block-top">
@@ -104,9 +105,10 @@
           <img src="images/OutputStage.png" width="70%" height="70%" class="centered-image"></img>
           <p class = "p-center" style="color:gray; font-size:0.7rem;">Circuit diagram illustrating the output stage.</p>
           <br>
-          <p>The gain stage properly amplifies the input signal; however, it lacks the current to drive the speaker. To solve this problem, I created an output stage
-          which used a current mirror to maintain a 1x gain while boosting the current into the speaker. The current mirror essentially fixes the voltage drop across Q6
-          which in turn fixes the current passing through the collector/output.</p>
+          <p>The gain stage properly amplifies the input signal; however, it lacks the current to drive the speaker. To solve this problem, I created an Emitter-Follower output stage, implementing
+          a current mirror to maintain a 1x gain while boosting the current into the speaker. The output stage maintains a high collector current ($~150\text{mA}$); this results in high base current
+          ($I_c$ or $\beta$). Furthermore, this reduces the current load on the voltage gain stage. The current mirror essentially fixes the voltage drop across Q6 which in turn fixes the current
+          passing through the collector/output.</p>
           <p>On its own, the two output transistors still did not have enough current to drive the speaker properly. So, I added another "layer" of two transistors to minimize
           the base current requirement, resulting in an improved output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the output stage transistors
           would heat up quickly. This caused thermal runaway which impacted the circuit--I countered this by monitoring the current via a DC signal generator and using the heatsinks to
