@@ -203,7 +203,7 @@ p {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
   #block {
       width: 70%;
