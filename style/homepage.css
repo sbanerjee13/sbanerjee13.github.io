@@ -101,8 +101,15 @@ p {
 }
 
 .in-p-link {
-  color: #288F88;
+  color: #9893da;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.in-p-link:hover {
+  color: white;
+  background-color: #9893da;
 }
 
 .p-center {
