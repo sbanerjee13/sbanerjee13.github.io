@@ -18,7 +18,7 @@ h1 {
 h2 {
   font-weight: normal;
   font-size: 1.1rem;
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Amiko', sans-serif;
 }
 
 .header-margin, .toggle {
@@ -42,7 +42,7 @@ p {
 /* BLOCK STUFF */
 
 #block {
-  width: 40%;
+  width: 55%;
   margin: 1.5rem auto;
   text-align: left;
   box-shadow: 0 0 15px 2px rgba(0,0,0,.075);
@@ -206,6 +206,11 @@ p {
 
   #block {
       width: 70%;
+  }
+
+  .block-text {
+    width: 100%;
+    margin: auto;
   }
 
   #portfolio-blocks {
