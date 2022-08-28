@@ -202,14 +202,6 @@ p {
 
 /* MEDIA */
 
-@media (max-width: 1610px) {
-
-  #block {
-      width: 58%;
-  }
-
-}
-
 @media (max-width: 600px) {
 
   #block {
