@@ -105,12 +105,21 @@
           <img src="images/OutputStage.png" width="70%" height="70%" class="centered-image"></img>
           <p class = "p-center" style="color:gray; font-size:0.7rem;">Circuit diagram illustrating the output stage.</p>
           <br>
-          <p>The gain stage properly amplifies the input signal; however, it lacks the current to drive the speaker. To solve this problem, I created an Emitter-Follower output stage, implementing
-          a current mirror to maintain a 1x gain while boosting the current into the speaker. The output stage maintains a high collector current ($~150\text{mA}$); this results in high base current
-          ($I_c$ or $\beta$). Furthermore, this reduces the current load on the voltage gain stage. The current mirror essentially fixes the voltage drop across Q6 which in turn fixes the current
-          passing through the collector/output.</p>
-          <p>On its own, the two output transistors still did not have enough current to drive the speaker properly. So, I added another "layer" of two transistors to minimize
-          the base current requirement, resulting in an improved output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the output stage transistors
+          <p>The voltage gain stage properly amplifies the input signal; however, it lacks the current to drive the speaker. To solve this problem, I created an Emitter-Follower output stage (Q15),
+          which maintains a ~1x gain while boosting the current into the speaker. However, when I connected this output stage to the voltage gain stage, I observed that the gain of the voltage stage itself
+          dropped significantly.
+          </p>
+
+          <p>
+          The output stage maintains a high collector current ($~150\text{mA}$); this results in high base current ($I_c$ or $\beta$), where $I_c$ is the collector current and
+          $\beta$ is the factor of proportionality between the base current and the collector current. From the datasheet, the minimum $\beta$ for a 2N3904 is $100$. Thus, the maximum base current we
+          can apply is $\frac{150\text{mA}}{100} = 1.5\text{mA}$. The output stage (Q15) was loading the voltage gain stage collector terminal, thereby reducing the actual gain of the voltage gain stage.
+          </p>
+
+          <p>
+          To reduce the current load on the voltage gain stage, I added an additional gain stage (Q7). This stage was designed by using a 2N222 transistor with a minimum $\beta$ of $100$. Since it introduces
+          another factor of $100$, it reduces the current load. This allowed the voltage gain stage to recover! Another design feature is the current mirror; this fixes the voltage drop across Q6 & Q14 Base - Emitter,
+          which in turn fixes the current passing through the collector/output. Additionally, I needed to use heatsinks (both commercial and some DIY aluminum ones!) because the output stage transistors
           would heat up quickly. This caused thermal runaway which impacted the circuit--I countered this by monitoring the current via a DC signal generator and using the heatsinks to
           keep temperatures relatively low.</p>
         </div>
