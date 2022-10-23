@@ -1,3 +1,5 @@
-# Sid Banerjee's Website
+# Welcome to my website!
 
-Developed in HTML/CSS. All content is original.
+This is a personal portfolio website hosted via GitHub pages and published via Netlify. You can visit it at the primary link: https://sidbanerjee.me. 
+
+Site developed in HTML/CSS. All content is original.
