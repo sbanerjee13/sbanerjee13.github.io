@@ -39,6 +39,10 @@ p {
   color: #9c9aad;
 }
 
+img {
+  image-rendering: crisp-edges;
+}
+
 /* BLOCK STUFF */
 
 #block {
