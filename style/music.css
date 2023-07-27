@@ -1,0 +1,113 @@
+/* univ */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-style: italic;
+}
+
+/* divs */
+
+#over {
+  display: flex;
+  width: 100%;
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  width: 50%;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 3rem;
+  width: 50%;
+}
+
+.larger {
+  font-size: 1.5rem;
+  width: 80%;
+  padding: 0 0 2rem 0;
+}
+
+.album-images {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 2rem 0;
+}
+
+.thought-p {
+  width: 80%;
+  padding: 0 0 2rem 0;
+  font-size: 0.9rem;
+}
+
+.thought-p_r {
+  width: 100%;
+  padding: 0 0 2rem 0;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Paragraph styles */
+
+.left-align {
+  text-align: left;
+  margin: 0.5rem;
+}
+
+.right-align {
+  text-align: right;
+  margin: 0.5rem;
+}
+
+.smaller {
+  font-size: 0.8rem;
+}
+
+/* Images */
+
+.album-cover {
+  height: 7rem;
+  width: 7rem;
+}
+
+/* mobile friendly */
+
+@media only screen and (max-width: 960px) {
+  #over {
+    flex-direction: column;
+  }
+
+  #left {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+    width: 100%;
+  }
+
+  #right {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+    width: 80%;
+  }
+}
